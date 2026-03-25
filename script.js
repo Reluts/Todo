@@ -40,6 +40,12 @@ function create_task(index, text, done) {
     tasks.push({index: index, text: input.value, done: done});
     console.log(tasks[tasks.length - 1]);
 
+    input.addEventListener("change", function() {
+        const i = tasks.findIndex(t => t.index === task_index);
+        if (i !== -1) tasks[i]["text"] = this.value;
+        save_tasks();
+    });
+
     delete_button.addEventListener("click", function() {
         const i = tasks.findIndex(t => t.index === task_index);
         if (i !== -1) tasks.splice(i, 1);
