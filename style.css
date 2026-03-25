@@ -1,0 +1,111 @@
+/* 全体の設定：背景を薄いグレーにして、メインコンテンツを浮かび上がらせる */
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc; /* 非常に薄いグレー */
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    color: #334155; /* 文字色は真っ黒ではなく少しグレーに */
+}
+
+/* コンテナ：幅を固定せず、柔軟に */
+#container, #list {
+    width: 95%;
+    max-width: 480px;
+}
+
+/* 入力エリアのグループ化（横並び） */
+#container {
+    display: flex;
+    gap: 12px; /* 要素間の隙間を一括指定 */
+    margin-bottom: 32px;
+}
+
+/* 入力欄：枠線を消してシャドウで立体感を出す */
+#task {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    outline: none;
+}
+
+#task:focus {
+    border-color: #6366f1; /* フォーカス時にアクセントカラー（インディゴ） */
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Addボタン：鮮やかなアクセントカラー */
+#add_task {
+    padding: 0 24px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+#add_task:hover {
+    background-color: #4f46e5;
+}
+
+#add_task:active {
+    transform: scale(0.96); /* クリックした時に少し沈む演出 */
+}
+
+/* タスクカード：ボーダーをなくし、柔らかい影をつける */
+#list div {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+}
+
+/* リスト内のテキスト入力 */
+#list input[type="text"] {
+    flex: 1;
+    margin: 0 12px;
+    padding: 6px;
+    font-size: 15px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+/* Deleteボタン：文字色だけで表現し、ホバーで赤くする */
+#list button {
+    padding: 8px 12px;
+    background-color: transparent;
+    color: #94a3b8;
+    font-size: 13px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#list button:hover {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+/* チェックボックス：少し大きくして押しやすく */
+#list input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #6366f1; /* チェックの色を変更 */
+}
